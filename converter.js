@@ -8,7 +8,7 @@ const moduleCode = () => {
   convertCSV()
     .fromFile(path.join(__dirname, "customer-data.xls"))
     .then((jsonObj) => {
-      fs.writeFile("module-converted.json", JSON.stringify(jsonObj), (err) => console.log(err));
+      fs.writeFile("module-converted.json", JSON.stringify(jsonObj, null, 2), (err) => console.log(err));
     });
 }
 
@@ -57,7 +57,7 @@ const manualCode = () => {
     }
 
     //Stringify result
-    let final = JSON.stringify(result);
+    let final = JSON.stringify(result, null, 2);
 
     //Write converted file to disk
     fs.writeFile("manual-converted.json", final, (err) => console.log(err));
